@@ -3,31 +3,68 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5650188725F7D05B006F75A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650188625F7D05B006F75A8 /* AppDelegate.swift */; };
 		5650188925F7D05B006F75A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650188825F7D05B006F75A8 /* SceneDelegate.swift */; };
-		5650188B25F7D05B006F75A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650188A25F7D05B006F75A8 /* ViewController.swift */; };
+		5650188B25F7D05B006F75A8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650188A25F7D05B006F75A8 /* MainViewController.swift */; };
 		5650188E25F7D05B006F75A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5650188C25F7D05B006F75A8 /* Main.storyboard */; };
 		5650189025F7D05C006F75A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5650188F25F7D05C006F75A8 /* Assets.xcassets */; };
 		5650189325F7D05C006F75A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5650189125F7D05C006F75A8 /* LaunchScreen.storyboard */; };
+		565018A625F7D554006F75A8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018A525F7D554006F75A8 /* MainViewModel.swift */; };
+		565018AC25F7D644006F75A8 /* TranslationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018AB25F7D644006F75A8 /* TranslationLanguage.swift */; };
+		565018B025F7D68F006F75A8 /* TranslationFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018AF25F7D68F006F75A8 /* TranslationFile.swift */; };
+		565018B425F7D71C006F75A8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 565018B325F7D71C006F75A8 /* SwiftSoup */; };
+		565018B825F7D9D8006F75A8 /* TranslationUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018B725F7D9D8006F75A8 /* TranslationUnit.swift */; };
+		565018C125F7DC05006F75A8 /* TranslationToolSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018C025F7DC05006F75A8 /* TranslationToolSetTests.swift */; };
+		565018CC25F7DF8F006F75A8 /* CommonError in Frameworks */ = {isa = PBXBuildFile; productRef = 565018CB25F7DF8F006F75A8 /* CommonError */; };
+		565018D625F7E72D006F75A8 /* TranslationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018AB25F7D644006F75A8 /* TranslationLanguage.swift */; };
+		565018D925F7E731006F75A8 /* TranslationFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018AF25F7D68F006F75A8 /* TranslationFile.swift */; };
+		565018DC25F7E734006F75A8 /* TranslationUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018B725F7D9D8006F75A8 /* TranslationUnit.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		565018C325F7DC05006F75A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5650187B25F7D05B006F75A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5650188225F7D05B006F75A8;
+			remoteInfo = TranslationToolSet;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5650188325F7D05B006F75A8 /* TranslationToolSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslationToolSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5650188625F7D05B006F75A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5650188825F7D05B006F75A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5650188A25F7D05B006F75A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5650188A25F7D05B006F75A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5650188D25F7D05B006F75A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5650188F25F7D05C006F75A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5650189225F7D05C006F75A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5650189425F7D05C006F75A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5650189B25F7D068006F75A8 /* TranslationToolSet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TranslationToolSet.entitlements; sourceTree = "<group>"; };
+		565018A525F7D554006F75A8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		565018AB25F7D644006F75A8 /* TranslationLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLanguage.swift; sourceTree = "<group>"; };
+		565018AF25F7D68F006F75A8 /* TranslationFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationFile.swift; sourceTree = "<group>"; };
+		565018B725F7D9D8006F75A8 /* TranslationUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationUnit.swift; sourceTree = "<group>"; };
+		565018BE25F7DC05006F75A8 /* TranslationToolSetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranslationToolSetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		565018C025F7DC05006F75A8 /* TranslationToolSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationToolSetTests.swift; sourceTree = "<group>"; };
+		565018C225F7DC05006F75A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5650188025F7D05B006F75A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				565018CC25F7DF8F006F75A8 /* CommonError in Frameworks */,
+				565018B425F7D71C006F75A8 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		565018BB25F7DC05006F75A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,7 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				5650188525F7D05B006F75A8 /* TranslationToolSet */,
+				565018BF25F7DC05006F75A8 /* TranslationToolSetTests */,
 				5650188425F7D05B006F75A8 /* Products */,
+				565018CF25F7DFA2006F75A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				5650188325F7D05B006F75A8 /* TranslationToolSet.app */,
+				565018BE25F7DC05006F75A8 /* TranslationToolSetTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +96,108 @@
 		5650188525F7D05B006F75A8 /* TranslationToolSet */ = {
 			isa = PBXGroup;
 			children = (
-				5650188625F7D05B006F75A8 /* AppDelegate.swift */,
-				5650188825F7D05B006F75A8 /* SceneDelegate.swift */,
-				5650188A25F7D05B006F75A8 /* ViewController.swift */,
-				5650188C25F7D05B006F75A8 /* Main.storyboard */,
-				5650188F25F7D05C006F75A8 /* Assets.xcassets */,
-				5650189125F7D05C006F75A8 /* LaunchScreen.storyboard */,
+				565018A125F7D0D1006F75A8 /* UI */,
+				565018A025F7D0C0006F75A8 /* Core */,
+				5650189D25F7D093006F75A8 /* Resources */,
+				5650189B25F7D068006F75A8 /* TranslationToolSet.entitlements */,
 				5650189425F7D05C006F75A8 /* Info.plist */,
 			);
 			path = TranslationToolSet;
+			sourceTree = "<group>";
+		};
+		5650189D25F7D093006F75A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5650189F25F7D0AC006F75A8 /* Assets */,
+				5650189E25F7D09B006F75A8 /* Storyboards */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5650189E25F7D09B006F75A8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5650189125F7D05C006F75A8 /* LaunchScreen.storyboard */,
+				5650188C25F7D05B006F75A8 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5650189F25F7D0AC006F75A8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5650188F25F7D05C006F75A8 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		565018A025F7D0C0006F75A8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				565018AA25F7D5AF006F75A8 /* Models */,
+				565018A925F7D59E006F75A8 /* Delegates */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		565018A125F7D0D1006F75A8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				565018A225F7D0DA006F75A8 /* ViewControllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		565018A225F7D0DA006F75A8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				565018A425F7D542006F75A8 /* Main */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		565018A425F7D542006F75A8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5650188A25F7D05B006F75A8 /* MainViewController.swift */,
+				565018A525F7D554006F75A8 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		565018A925F7D59E006F75A8 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				5650188825F7D05B006F75A8 /* SceneDelegate.swift */,
+				5650188625F7D05B006F75A8 /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		565018AA25F7D5AF006F75A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				565018AB25F7D644006F75A8 /* TranslationLanguage.swift */,
+				565018AF25F7D68F006F75A8 /* TranslationFile.swift */,
+				565018B725F7D9D8006F75A8 /* TranslationUnit.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		565018BF25F7DC05006F75A8 /* TranslationToolSetTests */ = {
+			isa = PBXGroup;
+			children = (
+				565018C025F7DC05006F75A8 /* TranslationToolSetTests.swift */,
+				565018C225F7DC05006F75A8 /* Info.plist */,
+			);
+			path = TranslationToolSetTests;
+			sourceTree = "<group>";
+		};
+		565018CF25F7DFA2006F75A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +216,33 @@
 			dependencies = (
 			);
 			name = TranslationToolSet;
+			packageProductDependencies = (
+				565018B325F7D71C006F75A8 /* SwiftSoup */,
+				565018CB25F7DF8F006F75A8 /* CommonError */,
+			);
 			productName = TranslationToolSet;
 			productReference = 5650188325F7D05B006F75A8 /* TranslationToolSet.app */;
 			productType = "com.apple.product-type.application";
+		};
+		565018BD25F7DC05006F75A8 /* TranslationToolSetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 565018C525F7DC05006F75A8 /* Build configuration list for PBXNativeTarget "TranslationToolSetTests" */;
+			buildPhases = (
+				565018BA25F7DC05006F75A8 /* Sources */,
+				565018BB25F7DC05006F75A8 /* Frameworks */,
+				565018BC25F7DC05006F75A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				565018C425F7DC05006F75A8 /* PBXTargetDependency */,
+			);
+			name = TranslationToolSetTests;
+			packageProductDependencies = (
+			);
+			productName = TranslationToolSetTests;
+			productReference = 565018BE25F7DC05006F75A8 /* TranslationToolSetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +256,10 @@
 					5650188225F7D05B006F75A8 = {
 						CreatedOnToolsVersion = 12.4;
 					};
+					565018BD25F7DC05006F75A8 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 5650188225F7D05B006F75A8;
+					};
 				};
 			};
 			buildConfigurationList = 5650187E25F7D05B006F75A8 /* Build configuration list for PBXProject "TranslationToolSet" */;
@@ -110,11 +271,16 @@
 				Base,
 			);
 			mainGroup = 5650187A25F7D05B006F75A8;
+			packageReferences = (
+				565018B225F7D71C006F75A8 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				565018CA25F7DF8F006F75A8 /* XCRemoteSwiftPackageReference "CommonError" */,
+			);
 			productRefGroup = 5650188425F7D05B006F75A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				5650188225F7D05B006F75A8 /* TranslationToolSet */,
+				565018BD25F7DC05006F75A8 /* TranslationToolSetTests */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +296,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		565018BC25F7DC05006F75A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,13 +310,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5650188B25F7D05B006F75A8 /* ViewController.swift in Sources */,
+				5650188B25F7D05B006F75A8 /* MainViewController.swift in Sources */,
 				5650188725F7D05B006F75A8 /* AppDelegate.swift in Sources */,
 				5650188925F7D05B006F75A8 /* SceneDelegate.swift in Sources */,
+				565018A625F7D554006F75A8 /* MainViewModel.swift in Sources */,
+				565018AC25F7D644006F75A8 /* TranslationLanguage.swift in Sources */,
+				565018B025F7D68F006F75A8 /* TranslationFile.swift in Sources */,
+				565018B825F7D9D8006F75A8 /* TranslationUnit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		565018BA25F7DC05006F75A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				565018C125F7DC05006F75A8 /* TranslationToolSetTests.swift in Sources */,
+				565018D925F7E731006F75A8 /* TranslationFile.swift in Sources */,
+				565018D625F7E72D006F75A8 /* TranslationLanguage.swift in Sources */,
+				565018DC25F7E734006F75A8 /* TranslationUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		565018C425F7DC05006F75A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5650188225F7D05B006F75A8 /* TranslationToolSet */;
+			targetProxy = 565018C325F7DC05006F75A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5650188C25F7D05B006F75A8 /* Main.storyboard */ = {
@@ -286,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TranslationToolSet/TranslationToolSet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LPE595N4R;
 				INFOPLIST_FILE = TranslationToolSet/Info.plist;
@@ -295,8 +492,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.mdd.TranslationToolSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -305,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TranslationToolSet/TranslationToolSet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LPE595N4R;
 				INFOPLIST_FILE = TranslationToolSet/Info.plist;
@@ -314,8 +513,49 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.mdd.TranslationToolSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Release;
+		};
+		565018C625F7DC05006F75A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LPE595N4R;
+				INFOPLIST_FILE = TranslationToolSetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.mdd.TranslationToolSetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TranslationToolSet.app/TranslationToolSet";
+			};
+			name = Debug;
+		};
+		565018C725F7DC05006F75A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LPE595N4R;
+				INFOPLIST_FILE = TranslationToolSetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.mdd.TranslationToolSetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TranslationToolSet.app/TranslationToolSet";
 			};
 			name = Release;
 		};
@@ -340,7 +580,48 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		565018C525F7DC05006F75A8 /* Build configuration list for PBXNativeTarget "TranslationToolSetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				565018C625F7DC05006F75A8 /* Debug */,
+				565018C725F7DC05006F75A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		565018B225F7D71C006F75A8 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+		565018CA25F7DF8F006F75A8 /* XCRemoteSwiftPackageReference "CommonError" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmatushkin/CommonError.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		565018B325F7D71C006F75A8 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565018B225F7D71C006F75A8 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		565018CB25F7DF8F006F75A8 /* CommonError */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565018CA25F7DF8F006F75A8 /* XCRemoteSwiftPackageReference "CommonError" */;
+			productName = CommonError;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5650187B25F7D05B006F75A8 /* Project object */;
 }
