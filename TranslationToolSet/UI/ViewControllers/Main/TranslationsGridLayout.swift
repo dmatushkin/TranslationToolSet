@@ -32,13 +32,15 @@ class TranslationsGridLayout: UICollectionViewLayout {
         var result: [UICollectionViewLayoutAttributes] = []
         for item in 0..<collection.numberOfItems(inSection: 0) {
             let header = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: IndexPath(item: item, section: 0))
-            header.frame = CGRect(x: CGFloat(item) * itemWidth, y: 0, width: itemWidth, height: headerHeight)
+            header.frame = CGRect(x: CGFloat(item) * itemWidth, y: collection.contentOffset.y, width: itemWidth, height: headerHeight)
+            header.zIndex = 1
             result.append(header)
             for section in 0..<collection.numberOfSections {
                 let frame = CGRect(x: CGFloat(item) * itemWidth, y: CGFloat(section) * itemHeight + headerHeight, width: itemWidth, height: itemHeight)
                 if frame.intersects(rect) {
                     let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: item, section: section))
                     attributes.frame = frame
+                    attributes.zIndex = 0
                     result.append(attributes)
                 }
             }
@@ -49,5 +51,9 @@ class TranslationsGridLayout: UICollectionViewLayout {
     override var collectionViewContentSize: CGSize {
         guard let collection = self.collectionView, collection.numberOfSections > 0 else { return .zero }
         return CGSize(width: CGFloat(collection.numberOfItems(inSection: 0)) * itemWidth, height: CGFloat(collection.numberOfSections) * itemHeight + headerHeight)
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
     }
 }
