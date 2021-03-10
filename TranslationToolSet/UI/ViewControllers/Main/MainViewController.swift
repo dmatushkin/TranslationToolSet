@@ -37,6 +37,10 @@ class MainViewController: UIViewController, UIDocumentPickerDelegate {
         self.present(picker, animated: true, completion: nil)        
     }
     
+    func saveChanges() {
+        self.model.saveChanges()
+    }
+    
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         for url in urls {
             self.model.addDocument(url: url)

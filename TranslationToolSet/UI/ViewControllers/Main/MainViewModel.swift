@@ -165,4 +165,15 @@ class MainViewModel: TranslationValueUpdateDelegate {
             }
         }
     }
+    
+    func saveChanges() {
+        for language in self.languages {
+            do {
+                let str = try language.serialize()
+                try str.write(to: language.documentURL, atomically: true, encoding: .utf8)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

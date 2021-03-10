@@ -33,25 +33,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if builder.system == UIMenuSystem.main {
             builder.remove(menu: .format)
             
-            let openCommand =
-                UIKeyCommand(title: NSLocalizedString("Open XLIFF", comment: ""),
-                             image: nil,
-                             action: #selector(AppDelegate.openXliffAction),
-                             input: "O",
-                             modifierFlags: .command,
-                             propertyList: nil)
-            let openMenu =
-                UIMenu(title: "",
-                       image: nil,
-                       identifier: UIMenu.Identifier("org.mdd.menus.openMenu"),
-                       options: .displayInline,
-                       children: [openCommand])
+            let openCommand = UIKeyCommand(title: NSLocalizedString("Open XLIFF", comment: ""),
+                                           image: nil,
+                                           action: #selector(AppDelegate.openXliffAction),
+                                           input: "O",
+                                           modifierFlags: .command,
+                                           propertyList: nil)
+            let saveCommand = UIKeyCommand(title: NSLocalizedString("Save changes", comment: ""),
+                                           image: nil,
+                                           action: #selector(AppDelegate.saveChangesAction),
+                                           input: "S",
+                                           modifierFlags: .command,
+                                           propertyList: nil)
+            let openMenu =  UIMenu(title: "",
+                                   image: nil,
+                                   identifier: UIMenu.Identifier("org.mdd.menus.openMenu"),
+                                   options: .displayInline,
+                                   children: [openCommand, saveCommand])
             builder.insertChild(openMenu, atStartOfMenu: .file)
         }
     }
     
     @objc private func openXliffAction() {
         MainViewController.instance?.openXliffFile()
+    }
+    
+    @objc private func saveChangesAction() {
+        MainViewController.instance?.saveChanges()
     }
 }
 
