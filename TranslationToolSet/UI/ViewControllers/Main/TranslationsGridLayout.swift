@@ -11,6 +11,7 @@ class TranslationsGridLayout: UICollectionViewLayout {
 
     private let itemWidth: CGFloat = 200
     private let itemHeight: CGFloat = 50
+    private let headerHeight: CGFloat = 30
     
     override func invalidateLayout() {
         super.invalidateLayout()
@@ -22,7 +23,7 @@ class TranslationsGridLayout: UICollectionViewLayout {
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-        attributes.frame = CGRect(x: CGFloat(indexPath.item) * itemWidth, y: CGFloat(indexPath.section) * itemHeight, width: itemWidth, height: itemHeight)
+        attributes.frame = CGRect(x: CGFloat(indexPath.item) * itemWidth, y: CGFloat(indexPath.section) * itemHeight + headerHeight, width: itemWidth, height: itemHeight)
         return attributes
     }
     
@@ -30,8 +31,11 @@ class TranslationsGridLayout: UICollectionViewLayout {
         guard let collection = self.collectionView, collection.numberOfSections > 0 else { return nil }
         var result: [UICollectionViewLayoutAttributes] = []
         for item in 0..<collection.numberOfItems(inSection: 0) {
+            let header = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: IndexPath(item: item, section: 0))
+            header.frame = CGRect(x: CGFloat(item) * itemWidth, y: 0, width: itemWidth, height: headerHeight)
+            result.append(header)
             for section in 0..<collection.numberOfSections {
-                let frame = CGRect(x: CGFloat(item) * itemWidth, y: CGFloat(section) * itemHeight, width: itemWidth, height: itemHeight)
+                let frame = CGRect(x: CGFloat(item) * itemWidth, y: CGFloat(section) * itemHeight + headerHeight, width: itemWidth, height: itemHeight)
                 if frame.intersects(rect) {
                     let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: item, section: section))
                     attributes.frame = frame
@@ -44,6 +48,6 @@ class TranslationsGridLayout: UICollectionViewLayout {
     
     override var collectionViewContentSize: CGSize {
         guard let collection = self.collectionView, collection.numberOfSections > 0 else { return .zero }
-        return CGSize(width: CGFloat(collection.numberOfItems(inSection: 0)) * itemWidth, height: CGFloat(collection.numberOfSections) * itemHeight)
+        return CGSize(width: CGFloat(collection.numberOfItems(inSection: 0)) * itemWidth, height: CGFloat(collection.numberOfSections) * itemHeight + headerHeight)
     }
 }

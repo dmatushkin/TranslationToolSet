@@ -63,13 +63,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fb4-1k-NVp">
                                     <size key="itemSize" width="189" height="118"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TranslationKeyCollectionViewCell" id="dGm-JO-TEy" customClass="TranslationKeyCollectionViewCell" customModule="TranslationToolSet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="51"/>
+                                        <rect key="frame" x="0.0" y="50" width="72" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gBT-lZ-2nG">
                                             <rect key="frame" x="0.0" y="0.0" width="72" height="51"/>
@@ -94,7 +94,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TranslationValueCollectionViewCell" id="Ez2-Of-UsE" customClass="TranslationValueCollectionViewCell" customModule="TranslationToolSet" customModuleProvider="target">
-                                        <rect key="frame" x="82" y="0.5" width="48" height="50"/>
+                                        <rect key="frame" x="82" y="50.5" width="48" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3su-TH-d0v">
                                             <rect key="frame" x="0.0" y="0.0" width="48" height="50"/>
@@ -118,6 +118,28 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TranslationHeaderReusableView" id="DxP-3K-7I0" customClass="TranslationHeaderReusableView" customModule="TranslationToolSet" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="968" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osg-Nw-nvJ">
+                                            <rect key="frame" x="15" y="8" width="938" height="34"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                    <constraints>
+                                        <constraint firstItem="osg-Nw-nvJ" firstAttribute="top" secondItem="DxP-3K-7I0" secondAttribute="top" constant="8" id="AH8-0C-07f"/>
+                                        <constraint firstItem="osg-Nw-nvJ" firstAttribute="leading" secondItem="DxP-3K-7I0" secondAttribute="leading" constant="15" id="XZ0-kP-oBR"/>
+                                        <constraint firstAttribute="trailing" secondItem="osg-Nw-nvJ" secondAttribute="trailing" constant="15" id="cTh-HY-w1U"/>
+                                        <constraint firstAttribute="bottom" secondItem="osg-Nw-nvJ" secondAttribute="bottom" constant="8" id="kPc-mg-GB8"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="sectionHeaderLabel" destination="osg-Nw-nvJ" id="db5-IS-0MP"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

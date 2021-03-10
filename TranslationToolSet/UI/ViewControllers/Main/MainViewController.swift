@@ -19,10 +19,10 @@ class MainViewController: UIViewController, UIDocumentPickerDelegate {
         super.viewDidLoad()
         MainViewController.instance = self
         model.controller = self
+        self.translationCollection.collectionViewLayout = TranslationsGridLayout()
         self.sectionsTable.dataSource = self.model.sectionsListDataSource
         self.sectionsTable.delegate = self.model.sectionsListDataSource
         self.translationCollection.dataSource = self.model.translationsCollectionDataSource
-        self.translationCollection.collectionViewLayout = TranslationsGridLayout()
     }
     
     func reloadSectionsTable() {

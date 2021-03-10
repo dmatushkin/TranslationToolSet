@@ -29,6 +29,7 @@
 		565018F925F8F04C006F75A8 /* TranslationKeyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018F825F8F04C006F75A8 /* TranslationKeyCollectionViewCell.swift */; };
 		565018FD25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018FC25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift */; };
 		5650190125F8F0A2006F75A8 /* TranslationsGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650190025F8F0A2006F75A8 /* TranslationsGridLayout.swift */; };
+		5650190525F9082C006F75A8 /* TranslationHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		565018F825F8F04C006F75A8 /* TranslationKeyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationKeyCollectionViewCell.swift; sourceTree = "<group>"; };
 		565018FC25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationValueCollectionViewCell.swift; sourceTree = "<group>"; };
 		5650190025F8F0A2006F75A8 /* TranslationsGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationsGridLayout.swift; sourceTree = "<group>"; };
+		5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHeaderReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				565018F825F8F04C006F75A8 /* TranslationKeyCollectionViewCell.swift */,
 				565018FC25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift */,
 				5650190025F8F0A2006F75A8 /* TranslationsGridLayout.swift */,
+				5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				565018A625F7D554006F75A8 /* MainViewModel.swift in Sources */,
 				565018AC25F7D644006F75A8 /* TranslationLanguage.swift in Sources */,
 				565018EC25F8CE53006F75A8 /* OptionalExtension.swift in Sources */,
+				5650190525F9082C006F75A8 /* TranslationHeaderReusableView.swift in Sources */,
 				5650190125F8F0A2006F75A8 /* TranslationsGridLayout.swift in Sources */,
 				565018B025F7D68F006F75A8 /* TranslationFile.swift in Sources */,
 				565018B825F7D9D8006F75A8 /* TranslationUnit.swift in Sources */,

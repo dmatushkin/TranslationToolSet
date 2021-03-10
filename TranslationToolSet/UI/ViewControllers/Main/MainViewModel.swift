@@ -62,6 +62,16 @@ class MainViewModel: TranslationValueUpdateDelegate {
             cell.updateDelegate = self.model
             return cell
         }
+        
+        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TranslationHeaderReusableView", for: indexPath) as? TranslationHeaderReusableView else { fatalError() }
+            if indexPath.item == 0 {
+                header.setup(title: self.model.languages[0].sourceLanguage)
+            } else {
+                header.setup(title: self.model.languages[indexPath.item - 1].targetLanguage)
+            }
+            return header
+        }
     }
     
     let sectionsListDataSource = SectionsListDataSource()
