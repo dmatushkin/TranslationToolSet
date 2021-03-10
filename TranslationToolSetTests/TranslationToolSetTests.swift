@@ -71,7 +71,7 @@ class TranslationToolSetTests: XCTestCase {
     }
 
     func testTranslationMapping() throws {
-        let language = try TranslationLanguage(fileContent: enTranslationData)
+        let language = try TranslationLanguage(documentURL: URL(fileURLWithPath: "/"), fileContent: enTranslationData)
         
         XCTAssertEqual(language.sourceLanguage, "en")
         XCTAssertEqual(language.targetLanguage, "en2")
@@ -117,7 +117,7 @@ class TranslationToolSetTests: XCTestCase {
     }
 
     func testSerialize() throws {
-        let language = TranslationLanguage(sourceLanguage: "en", targetLanguage: "ru", translationFiles: [
+        let language = TranslationLanguage(documentURL: URL(fileURLWithPath: "/"), sourceLanguage: "en", targetLanguage: "ru", translationFiles: [
             TranslationFile(filePath: "test/file/path", toolId: "123", toolName: "456", toolVersion: "789", toolBuildNumber: "012", translationUnits: [
                 TranslationUnit(unitId: "01", source: "test source", target: "test target", note: "test note"),
                 TranslationUnit(unitId: "02", source: "test source 2", target: "test target 2", note: "test note 2")

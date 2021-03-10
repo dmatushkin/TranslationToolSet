@@ -78,14 +78,14 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
-			<key>UTTypeDescription</key>
-			<string>xliff</string>
-			<key>UTTypeIconFiles</key>
-			<array/>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.data</string>
 			</array>
+			<key>UTTypeDescription</key>
+			<string>xliff</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
 			<string>com.mdd.xliff</string>
 			<key>UTTypeTagSpecification</key>
@@ -94,20 +94,24 @@
 				<array>
 					<string>xliff</string>
 				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>text/xml</string>
+				</array>
 			</dict>
 		</dict>
 	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>
-			<key>UTTypeDescription</key>
-			<string>xliff</string>
-			<key>UTTypeIconFiles</key>
-			<array/>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.data</string>
 			</array>
+			<key>UTTypeDescription</key>
+			<string>xliff</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
 			<string>com.mdd.xliff</string>
 			<key>UTTypeTagSpecification</key>
@@ -115,6 +119,10 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>xliff</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>text/xml</string>
 				</array>
 			</dict>
 		</dict>

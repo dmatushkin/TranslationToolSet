@@ -9,29 +9,22 @@ import Foundation
 import SwiftSoup
 import CommonError
 
-extension Optional {
-    
-    func value(errorName: String) throws -> Wrapped {
-        if let value = self {
-            return value
-        }
-        throw CommonError(description: errorName)
-    }
-}
-
 class TranslationLanguage {
     
+    let documentURL: URL
     let sourceLanguage: String
     let targetLanguage: String
-    let translationFiles: [TranslationFile]
+    var translationFiles: [TranslationFile]
     
-    init(sourceLanguage: String, targetLanguage: String, translationFiles: [TranslationFile]) {
+    init(documentURL: URL, sourceLanguage: String, targetLanguage: String, translationFiles: [TranslationFile]) {
+        self.documentURL = documentURL
         self.sourceLanguage = sourceLanguage
         self.targetLanguage = targetLanguage
         self.translationFiles = translationFiles
     }
     
-    init(fileContent: String) throws {
+    init(documentURL: URL, fileContent: String) throws {
+        self.documentURL = documentURL
         let xml = try SwiftSoup.parse(fileContent, "", Parser.xmlParser())
         let files = try xml.getElementsByTag("file")
         

@@ -14,7 +14,7 @@ class TranslationFile {
     let toolName: String
     let toolVersion: String
     let toolBuildNumber: String
-    let translationUnits: [TranslationUnit]
+    var translationUnits: [TranslationUnit]
     
     init(filePath: String, toolId: String, toolName: String, toolVersion: String, toolBuildNumber: String, translationUnits: [TranslationUnit]) {
         self.filePath = filePath

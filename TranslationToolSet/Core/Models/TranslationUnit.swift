@@ -11,7 +11,7 @@ class TranslationUnit {
     
     let unitId: String
     let source: String
-    let target: String
+    var target: String
     let note: String
     
     init(unitId: String, source: String, target: String, note: String) {

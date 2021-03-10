@@ -1,0 +1,49 @@
+//
+//  TranslationsGridLayout.swift
+//  TranslationToolSet
+//
+//  Created by Dmitry Matyushkin on 3/10/21.
+//
+
+import UIKit
+
+class TranslationsGridLayout: UICollectionViewLayout {
+
+    private let itemWidth: CGFloat = 200
+    private let itemHeight: CGFloat = 50
+    
+    override func invalidateLayout() {
+        super.invalidateLayout()
+    }
+    
+    override func prepare() {
+        super.prepare()
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+        attributes.frame = CGRect(x: CGFloat(indexPath.item) * itemWidth, y: CGFloat(indexPath.section) * itemHeight, width: itemWidth, height: itemHeight)
+        return attributes
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let collection = self.collectionView, collection.numberOfSections > 0 else { return nil }
+        var result: [UICollectionViewLayoutAttributes] = []
+        for item in 0..<collection.numberOfItems(inSection: 0) {
+            for section in 0..<collection.numberOfSections {
+                let frame = CGRect(x: CGFloat(item) * itemWidth, y: CGFloat(section) * itemHeight, width: itemWidth, height: itemHeight)
+                if frame.intersects(rect) {
+                    let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: item, section: section))
+                    attributes.frame = frame
+                    result.append(attributes)
+                }
+            }
+        }
+        return result
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        guard let collection = self.collectionView, collection.numberOfSections > 0 else { return .zero }
+        return CGSize(width: CGFloat(collection.numberOfItems(inSection: 0)) * itemWidth, height: CGFloat(collection.numberOfSections) * itemHeight)
+    }
+}
