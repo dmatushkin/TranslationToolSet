@@ -110,6 +110,8 @@ class MainViewModel: TranslationValueUpdateDelegate {
             let fileContent = try String(contentsOf: url)
             let language = try TranslationLanguage(documentURL: url, fileContent: fileContent)
             self.languages.append(language)
+            AppDelegate.duplicateCommand.attributes = []
+            UIMenuSystem.main.setNeedsRebuild()
         } catch {
             print(error.localizedDescription)
         }
