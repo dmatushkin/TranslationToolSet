@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc private func duplicateLanguageAction() {
-        
+        MainViewController.instance?.duplicateLanguage()
     }
 }
 

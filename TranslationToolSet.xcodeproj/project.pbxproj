@@ -30,6 +30,8 @@
 		565018FD25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565018FC25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift */; };
 		5650190125F8F0A2006F75A8 /* TranslationsGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650190025F8F0A2006F75A8 /* TranslationsGridLayout.swift */; };
 		5650190525F9082C006F75A8 /* TranslationHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */; };
+		56C19C0E25F9D4930038642E /* DuplicateLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */; };
+		56C19C2025FA8CEE0038642E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		565018FC25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationValueCollectionViewCell.swift; sourceTree = "<group>"; };
 		5650190025F8F0A2006F75A8 /* TranslationsGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationsGridLayout.swift; sourceTree = "<group>"; };
 		5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHeaderReusableView.swift; sourceTree = "<group>"; };
+		56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateLanguageViewController.swift; sourceTree = "<group>"; };
+		56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 		565018A225F7D0DA006F75A8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				56C19C0C25F9D4770038642E /* DuplicateLanguage */,
 				565018A425F7D542006F75A8 /* Main */,
 			);
 			path = ViewControllers;
@@ -223,8 +228,17 @@
 			isa = PBXGroup;
 			children = (
 				565018EB25F8CE53006F75A8 /* OptionalExtension.swift */,
+				56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		56C19C0C25F9D4770038642E /* DuplicateLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */,
+			);
+			path = DuplicateLanguage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,12 +351,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C19C2025FA8CEE0038642E /* ArrayExtension.swift in Sources */,
 				5650188B25F7D05B006F75A8 /* MainViewController.swift in Sources */,
 				565018F525F8E4A4006F75A8 /* MainSectionsTableViewCell.swift in Sources */,
 				565018FD25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift in Sources */,
 				565018F925F8F04C006F75A8 /* TranslationKeyCollectionViewCell.swift in Sources */,
 				5650188725F7D05B006F75A8 /* AppDelegate.swift in Sources */,
 				5650188925F7D05B006F75A8 /* SceneDelegate.swift in Sources */,
+				56C19C0E25F9D4930038642E /* DuplicateLanguageViewController.swift in Sources */,
 				565018A625F7D554006F75A8 /* MainViewModel.swift in Sources */,
 				565018AC25F7D644006F75A8 /* TranslationLanguage.swift in Sources */,
 				565018EC25F8CE53006F75A8 /* OptionalExtension.swift in Sources */,

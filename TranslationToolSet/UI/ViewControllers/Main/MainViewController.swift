@@ -28,6 +28,7 @@ class MainViewController: UIViewController, UIDocumentPickerDelegate {
     func reloadSectionsTable() {
         self.sectionsTable.reloadData()
         self.translationCollection.reloadData()
+        self.translationCollection.contentOffset = .zero
     }
     
     func openXliffFile() {
@@ -35,6 +36,14 @@ class MainViewController: UIViewController, UIDocumentPickerDelegate {
         picker.allowsMultipleSelection = false
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)        
+    }
+    
+    func duplicateLanguage() {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "DuplicateLanguageViewController") as? DuplicateLanguageViewController else { return }
+        controller.modalPresentationStyle = .popover
+        controller.popoverPresentationController?.sourceView = self.translationCollection
+        controller.mainModel = self.model
+        self.present(controller, animated: true, completion: nil)
     }
     
     func saveChanges() {

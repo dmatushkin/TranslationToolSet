@@ -83,11 +83,7 @@ class MainViewModel: TranslationValueUpdateDelegate {
             var res = [String]()
             for language in languages {
                 let languageFiles = language.translationFiles.map({ $0.filePath })
-                for file in languageFiles {
-                    if !res.contains(file) {
-                        res.append(file)
-                    }
-                }
+                res.appendMissing(from: languageFiles)
             }
             self.sections = res
             self.selectedSection = 0
@@ -123,11 +119,7 @@ class MainViewModel: TranslationValueUpdateDelegate {
         for language in self.languages {
             if let file = language.translationFiles.filter({ $0.filePath == currentSection }).first {
                 let keys = file.translationUnits.map({ $0.source })
-                for key in keys {
-                    if !res.contains(key) {
-                        res.append(key)
-                    }
-                }
+                res.appendMissing(from: keys)
             }
         }
         self.keys = res
@@ -177,5 +169,31 @@ class MainViewModel: TranslationValueUpdateDelegate {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func duplicateLanguage(with code: String) {
+        var files: [String] = []
+        for language in self.languages {
+            files.appendMissing(from: language.translationFiles.map({ $0.filePath }))
+        }
+        let translationFiles = files.map({ file -> TranslationFile in
+            var keys: [String] = []
+            for language in self.languages {
+                for translationFile in language.translationFiles.filter({ $0.filePath == file }) {
+                    keys.appendMissing(from: translationFile.translationUnits.map({ $0.source }))
+                }
+            }
+            let units = keys.map({ key -> TranslationUnit in
+                let origUnit = self.languages.flatMap({ $0.translationFiles }).filter({ $0.filePath == file }).flatMap({ $0.translationUnits }).first(where: { $0.source == key })
+                return TranslationUnit(unitId: origUnit?.unitId ?? key, source: key, target: "", note: origUnit?.note ?? "")
+            })
+            let toolId = self.languages.flatMap({ $0.translationFiles }).map({ $0.toolId }).first ?? ""
+            let toolName = self.languages.flatMap({ $0.translationFiles }).map({ $0.toolName }).first ?? ""
+            let toolVersion = self.languages.flatMap({ $0.translationFiles }).map({ $0.toolVersion }).first ?? ""
+            let toolBuildNumber = self.languages.flatMap({ $0.translationFiles }).map({ $0.toolBuildNumber }).first ?? ""
+            return TranslationFile(filePath: file, toolId: toolId, toolName: toolName, toolVersion: toolVersion, toolBuildNumber: toolBuildNumber, translationUnits: units)
+        })
+        let newLanguage = TranslationLanguage(documentURL: URL(fileURLWithPath: ""), sourceLanguage: self.languages[0].sourceLanguage, targetLanguage: code, translationFiles: translationFiles)
+        self.languages.append(newLanguage)
     }
 }
