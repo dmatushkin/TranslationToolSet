@@ -41,7 +41,7 @@ class TranslationLanguage {
             let transUnits = try file.getElementsByTag("trans-unit").map({unit -> TranslationUnit in
                 let unitId = try unit.attr("id")
                 let source = try unit.getElementsByTag("source").first().value(errorName: "no unit source").text()
-                let target = try unit.getElementsByTag("target").first().value(errorName: "no unit target").text()
+                let target = try unit.getElementsByTag("target").first()?.text() ?? ""
                 let note = try unit.getElementsByTag("note").first()?.text() ?? ""
                 return TranslationUnit(unitId: unitId, source: source, target: target, note: note)
             })
