@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
     
+    private static let backgroundQueue = DispatchQueue(label: "data_load_queue", qos: .utility)
+    
     class SectionsListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         
         fileprivate weak var model: MainViewModel!
@@ -79,8 +81,14 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         fileprivate weak var model: MainViewModel!
         
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            for url in urls {
-                self.model.addDocument(url: url)
+            self.model.controller.showLoadIndicator()
+            MainViewModel.backgroundQueue.async {[unowned self] in
+                for url in urls {
+                    self.model.addDocument(url: url)
+                }
+                DispatchQueue.main.async {[unowned self] in
+                    self.model.controller.hideLoadIndicator()
+                }
             }
         }
         
@@ -94,9 +102,15 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         fileprivate weak var model: MainViewModel!
         
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            for url in urls {
-                self.model.addFolder(url: url)
-            }
+            self.model.controller.showLoadIndicator()
+            MainViewModel.backgroundQueue.async {[unowned self] in
+                for url in urls {
+                    self.model.addFolder(url: url)
+                }
+                DispatchQueue.main.async {[unowned self] in
+                    self.model.controller.hideLoadIndicator()
+                }
+            }            
         }
         
         func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
@@ -122,15 +136,9 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
     
     private var languages: [TranslationLanguage] = [] {
         didSet {
-            var res = [String]()
-            for language in languages {
-                let languageFiles = language.translationFiles.map({ $0.filePath })
-                res.appendMissing(from: languageFiles)
+            DispatchQueue.main.async {[weak self] in
+                self?.reloadLanguages()
             }
-            self.sections = res
-            self.selectedSection = 0
-            self.recalculateTranslations()
-            self.needsToReloadSections()
         }
     }
     
@@ -144,6 +152,18 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         self.addLanguagePickerDelegate.model = self
         self.duplicateLanguagePickerDelegate.model = self
         self.addExportedFolderPickerDelegate.model = self
+    }
+    
+    private func reloadLanguages() {
+        var res = [String]()
+        for language in languages {
+            let languageFiles = language.translationFiles.map({ $0.filePath })
+            res.appendMissing(from: languageFiles)
+        }
+        self.sections = res
+        self.selectedSection = 0
+        self.recalculateTranslations()
+        self.needsToReloadSections()
     }
     
     func translationRowHeight(section: Int, cellWidth: CGFloat) -> CGFloat {
@@ -163,6 +183,8 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
             let language = try TranslationLanguage(documentURL: url, fileContent: fileContent)
             self.languages.append(language)
             AppDelegate.duplicateCommand.attributes = []
+            AppDelegate.exportKeysCommand.attributes = []
+            AppDelegate.applyTSVCommand.attributes = []
             UIMenuSystem.main.setNeedsRebuild()
         } catch {
             print(error.localizedDescription)

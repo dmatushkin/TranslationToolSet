@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        AppDelegate.duplicateCommand.attributes = .disabled
         return true
     }
 
@@ -56,7 +55,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                           action: #selector(AppDelegate.duplicateLanguageAction),
                                           input: "D",
                                           modifierFlags: .command,
-                                          propertyList: nil)
+                                          propertyList: nil).disabled()
+    
+    static let exportKeysCommand = UIKeyCommand(title: NSLocalizedString("Export words to translate", comment: ""),
+                                          image: nil,
+                                          action: #selector(AppDelegate.exportTranslationKeys),
+                                          input: "E",
+                                          modifierFlags: .command,
+                                          propertyList: nil).disabled()
+    
+    static let applyTSVCommand = UIKeyCommand(title: NSLocalizedString("Apply translation", comment: ""),
+                                          image: nil,
+                                          action: #selector(AppDelegate.applyTSVFile),
+                                          input: "A",
+                                          modifierFlags: .command,
+                                          propertyList: nil).disabled()
 
     override func buildMenu(with builder: UIMenuBuilder) {
         if builder.system == UIMenuSystem.main {
@@ -66,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                    image: nil,
                                    identifier: UIMenu.Identifier("org.mdd.menus.openMenu"),
                                    options: .displayInline,
-                                   children: [AppDelegate.openFileCommand, AppDelegate.openFolderCommand, AppDelegate.saveCommand, AppDelegate.duplicateCommand])
+                                   children: [AppDelegate.openFileCommand, AppDelegate.openFolderCommand, AppDelegate.saveCommand, AppDelegate.duplicateCommand, AppDelegate.exportKeysCommand, AppDelegate.applyTSVCommand])
             builder.insertChild(openMenu, atStartOfMenu: .file)
         }
     }
@@ -85,6 +98,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc private func duplicateLanguageAction() {
         MainViewController.instance?.duplicateLanguage()
+    }
+    
+    @objc private func exportTranslationKeys() {
+        
+    }
+    
+    @objc private func applyTSVFile() {
+        
     }
 }
 

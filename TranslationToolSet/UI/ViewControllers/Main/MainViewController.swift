@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     static var instance: MainViewController?
     private let model = MainViewModel()
     private let layout = TranslationsGridLayout()
+    private var loadIndicator: LoadIndicatorViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class MainViewController: UIViewController {
         self.sectionsTable.dataSource = self.model.sectionsListDataSource
         self.sectionsTable.delegate = self.model.sectionsListDataSource
         self.translationCollection.dataSource = self.model.translationsCollectionDataSource
+        self.loadIndicator = self.storyboard!.instantiateViewController(withIdentifier: "LoadIndicatorViewController") as! LoadIndicatorViewController
     }
     
     func reloadSectionsTable() {
@@ -45,6 +47,14 @@ class MainViewController: UIViewController {
         picker.allowsMultipleSelection = false
         picker.delegate = self.model.addExportedFolderPickerDelegate
         self.present(picker, animated: true, completion: nil)
+    }
+    
+    func showLoadIndicator() {
+        self.present(self.loadIndicator, animated: false, completion: nil)
+    }
+    
+    func hideLoadIndicator() {
+        self.loadIndicator.dismiss(animated: false, completion: nil)
     }
     
     func duplicateLanguage() {

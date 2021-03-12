@@ -247,6 +247,35 @@
             </objects>
             <point key="canvasLocation" x="470.8638360175695" y="-171.09375"/>
         </scene>
+        <!--Load Indicator View Controller-->
+        <scene sceneID="tKi-jH-MpA">
+            <objects>
+                <viewController storyboardIdentifier="LoadIndicatorViewController" id="1G2-eV-aIk" customClass="LoadIndicatorViewController" customModule="TranslationToolSet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ace-Yf-uTr">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ReG-Tt-Bmn">
+                                <rect key="frame" x="140" y="140" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cdB-Mz-CDv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ReG-Tt-Bmn" firstAttribute="centerX" secondItem="cdB-Mz-CDv" secondAttribute="centerX" id="97N-nN-kor"/>
+                            <constraint firstItem="ReG-Tt-Bmn" firstAttribute="centerY" secondItem="cdB-Mz-CDv" secondAttribute="centerY" id="sVt-yi-N3a"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ReG-Tt-Bmn" id="kln-O9-PoN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1V-RI-op0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680" y="-118"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">
