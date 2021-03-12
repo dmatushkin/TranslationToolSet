@@ -33,6 +33,10 @@ class DuplicateLanguageViewController: UIViewController {
         })
     }
     
+    @IBAction private func cancelAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

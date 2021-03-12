@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKV-ZQ-M3H">
-                                <rect key="frame" x="380" y="11" width="100" height="39"/>
+                                <rect key="frame" x="380" y="13.5" width="100" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="6lv-x2-WQR"/>
                                 </constraints>
@@ -183,40 +183,57 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New language code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVF-zN-lfe">
-                                <rect key="frame" x="20" y="20" width="350" height="21"/>
+                                <rect key="frame" x="20" y="20" width="350" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCx-IG-rwz">
-                                <rect key="frame" x="200" y="70" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="DN8-aY-OaD"/>
-                                    <constraint firstAttribute="height" constant="30" id="wSS-ON-wzc"/>
-                                </constraints>
-                                <state key="normal" title="Add language">
-                                    <color key="titleColor" systemColor="systemGreenColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="duplicateAction" destination="8Pn-zJ-Das" eventType="touchUpInside" id="Mtc-gJ-aHZ"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="maL-pg-iSI">
+                                <rect key="frame" x="15" y="62.5" width="470" height="42.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCx-IG-rwz">
+                                        <rect key="frame" x="0.0" y="6" width="230" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="wSS-ON-wzc"/>
+                                        </constraints>
+                                        <state key="normal" title="Add language">
+                                            <color key="titleColor" systemColor="systemGreenColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="duplicateAction" destination="8Pn-zJ-Das" eventType="touchUpInside" id="Mtc-gJ-aHZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rJ-8r-Mg3">
+                                        <rect key="frame" x="240" y="6" width="230" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="CEj-kE-ydF"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelAction" destination="8Pn-zJ-Das" eventType="touchUpInside" id="YzS-zZ-Qz8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BPD-JC-Gpu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cKV-ZQ-M3H" firstAttribute="centerY" secondItem="oVF-zN-lfe" secondAttribute="centerY" id="4ly-kX-4pP"/>
                             <constraint firstItem="oVF-zN-lfe" firstAttribute="top" secondItem="BPD-JC-Gpu" secondAttribute="top" constant="20" id="623-Pt-uN8"/>
-                            <constraint firstItem="BPD-JC-Gpu" firstAttribute="bottom" secondItem="VCx-IG-rwz" secondAttribute="bottom" constant="20" id="OVz-SE-ZWx"/>
+                            <constraint firstItem="maL-pg-iSI" firstAttribute="top" secondItem="cKV-ZQ-M3H" secondAttribute="bottom" constant="15" id="7gc-Bc-gbg"/>
+                            <constraint firstItem="BPD-JC-Gpu" firstAttribute="bottom" secondItem="maL-pg-iSI" secondAttribute="bottom" constant="15" id="Led-u9-uFX"/>
                             <constraint firstItem="cKV-ZQ-M3H" firstAttribute="leading" secondItem="oVF-zN-lfe" secondAttribute="trailing" constant="10" id="UWG-7v-M2g"/>
-                            <constraint firstItem="VCx-IG-rwz" firstAttribute="centerX" secondItem="BPD-JC-Gpu" secondAttribute="centerX" id="Y9s-87-tjK"/>
+                            <constraint firstItem="BPD-JC-Gpu" firstAttribute="trailing" secondItem="maL-pg-iSI" secondAttribute="trailing" constant="15" id="bOY-SI-dY2"/>
+                            <constraint firstItem="maL-pg-iSI" firstAttribute="leading" secondItem="BPD-JC-Gpu" secondAttribute="leading" constant="15" id="c90-0z-1n9"/>
                             <constraint firstItem="oVF-zN-lfe" firstAttribute="leading" secondItem="BPD-JC-Gpu" secondAttribute="leading" constant="20" id="jdI-U1-iDI"/>
-                            <constraint firstItem="VCx-IG-rwz" firstAttribute="top" secondItem="cKV-ZQ-M3H" secondAttribute="bottom" constant="20" id="nAP-L5-a2M"/>
                             <constraint firstItem="BPD-JC-Gpu" firstAttribute="trailing" secondItem="cKV-ZQ-M3H" secondAttribute="trailing" constant="20" id="tU1-Oy-9Uj"/>
                         </constraints>
                     </view>
@@ -228,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIe-q9-qIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="-171"/>
+            <point key="canvasLocation" x="470.8638360175695" y="-171.09375"/>
         </scene>
     </scenes>
     <resources>
