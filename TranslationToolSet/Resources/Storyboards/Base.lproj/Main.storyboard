@@ -25,14 +25,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainSectionsTableViewCell" id="iZo-8K-gby" customClass="MainSectionsTableViewCell" customModule="TranslationToolSet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="350" height="51"/>
+                                        <rect key="frame" x="0.0" y="28" width="350" height="51.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iZo-8K-gby" id="z5H-eg-7B3">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbb-wQ-aZv">
-                                                    <rect key="frame" x="15" y="15" width="320" height="21"/>
+                                                    <rect key="frame" x="15" y="15" width="320" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TranslationKeyCollectionViewCell" id="dGm-JO-TEy" customClass="TranslationKeyCollectionViewCell" customModule="TranslationToolSet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="71.5" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="84" width="71.5" height="50.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gBT-lZ-2nG">
                                             <rect key="frame" x="0.0" y="0.0" width="71.5" height="50.5"/>
@@ -94,27 +94,30 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TranslationValueCollectionViewCell" id="Ez2-Of-UsE" customClass="TranslationValueCollectionViewCell" customModule="TranslationToolSet" customModuleProvider="target">
-                                        <rect key="frame" x="81.5" y="50.5" width="48" height="50"/>
+                                        <rect key="frame" x="81.5" y="50" width="189" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3su-TH-d0v">
-                                            <rect key="frame" x="0.0" y="0.0" width="48" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="189" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVQ-hR-BZi">
-                                                    <rect key="frame" x="8" y="8" width="32" height="34"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v40-Mw-b3Q">
+                                                    <rect key="frame" x="8" y="8" width="173" height="102"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bVQ-hR-BZi" firstAttribute="top" secondItem="3su-TH-d0v" secondAttribute="top" constant="8" id="CyJ-43-rET"/>
-                                                <constraint firstAttribute="bottom" secondItem="bVQ-hR-BZi" secondAttribute="bottom" constant="8" id="TED-xr-w1N"/>
-                                                <constraint firstAttribute="trailing" secondItem="bVQ-hR-BZi" secondAttribute="trailing" constant="8" id="b6G-Ic-Cna"/>
-                                                <constraint firstItem="bVQ-hR-BZi" firstAttribute="leading" secondItem="3su-TH-d0v" secondAttribute="leading" constant="8" id="dXY-14-EX3"/>
+                                                <constraint firstAttribute="bottom" secondItem="v40-Mw-b3Q" secondAttribute="bottom" constant="8" id="1Oa-h9-iay"/>
+                                                <constraint firstItem="v40-Mw-b3Q" firstAttribute="leading" secondItem="3su-TH-d0v" secondAttribute="leading" constant="8" id="5tE-gV-cRr"/>
+                                                <constraint firstAttribute="trailing" secondItem="v40-Mw-b3Q" secondAttribute="trailing" constant="8" id="xX4-kg-kfw"/>
+                                                <constraint firstItem="v40-Mw-b3Q" firstAttribute="top" secondItem="3su-TH-d0v" secondAttribute="top" constant="8" id="y7Z-Zi-n7w"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="textField" destination="bVQ-hR-BZi" id="NRa-hw-u1P"/>
+                                            <outlet property="textField" destination="v40-Mw-b3Q" id="5SR-KI-5kz"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -229,6 +232,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

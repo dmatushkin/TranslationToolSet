@@ -12,15 +12,17 @@ protocol TranslationValueUpdateDelegate: class {
     func apply(value: String, for indexPath: IndexPath)
 }
 
-class TranslationValueCollectionViewCell: UICollectionViewCell {
+class TranslationValueCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
-    @IBOutlet private var textField: UITextField!
+    @IBOutlet private var textField: UITextView!
     private var indexPath: IndexPath = IndexPath(item: 0, section: 0)
     weak var updateDelegate: TranslationValueUpdateDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.textField.addTarget(self, action: #selector(didUpdate), for: .editingChanged)
+        self.textField.delegate = self
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.gray.cgColor
     }
     
     func setup(value: String, indexPath: IndexPath) {
@@ -28,7 +30,7 @@ class TranslationValueCollectionViewCell: UICollectionViewCell {
         self.textField.text = value
     }
     
-    @objc private func didUpdate() {
+    func textViewDidChange(_ textView: UITextView) {
         self.updateDelegate?.apply(value: self.textField.text ?? "", for: self.indexPath)
     }
 }

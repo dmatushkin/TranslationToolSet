@@ -14,12 +14,14 @@ class MainViewController: UIViewController {
     
     static var instance: MainViewController?
     private let model = MainViewModel()
+    private let layout = TranslationsGridLayout()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         MainViewController.instance = self
-        model.controller = self
-        self.translationCollection.collectionViewLayout = TranslationsGridLayout()
+        self.model.controller = self
+        self.layout.model = self.model
+        self.translationCollection.collectionViewLayout = self.layout
         self.sectionsTable.dataSource = self.model.sectionsListDataSource
         self.sectionsTable.delegate = self.model.sectionsListDataSource
         self.translationCollection.dataSource = self.model.translationsCollectionDataSource

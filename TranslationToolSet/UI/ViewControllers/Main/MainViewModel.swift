@@ -129,6 +129,17 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         self.duplicateLanguagePickerDelegate.model = self
     }
     
+    func translationRowHeight(section: Int, cellWidth: CGFloat) -> CGFloat {
+        guard section >= 0 && section < self.keys.count else { return 0 }
+        let key = self.keys[section]
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.text = key
+        let labelSize = label.systemLayoutSizeFitting(CGSize(width: cellWidth - 30, height: CGFloat.greatestFiniteMagnitude), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+        return max(labelSize.height + 30, 50)
+    }
+    
     func addDocument(url: URL) {
         do {
             let fileContent = try String(contentsOf: url)
