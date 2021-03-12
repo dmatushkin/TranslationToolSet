@@ -89,6 +89,21 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         }
     }
     
+    class AddExportedFolderPickerDelegate: NSObject, UIDocumentPickerDelegate {
+        
+        fileprivate weak var model: MainViewModel!
+        
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            for url in urls {
+                self.model.addFolder(url: url)
+            }
+        }
+        
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            
+        }
+    }
+    
     class DuplicateLanguagePickerDelegate: NSObject, SaveLanguagePickerDelegate {
         
         fileprivate weak var model: MainViewModel!
@@ -102,6 +117,7 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
     let translationsCollectionDataSource = TranslationsDataSource()
     let addLanguagePickerDelegate = AddLanguagePickerDelegate()
     let duplicateLanguagePickerDelegate = DuplicateLanguagePickerDelegate()
+    let addExportedFolderPickerDelegate = AddExportedFolderPickerDelegate()
     weak var controller: MainViewController!
     
     private var languages: [TranslationLanguage] = [] {
@@ -127,6 +143,7 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         self.translationsCollectionDataSource.model = self
         self.addLanguagePickerDelegate.model = self
         self.duplicateLanguagePickerDelegate.model = self
+        self.addExportedFolderPickerDelegate.model = self
     }
     
     func translationRowHeight(section: Int, cellWidth: CGFloat) -> CGFloat {
@@ -147,6 +164,23 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
             self.languages.append(language)
             AppDelegate.duplicateCommand.attributes = []
             UIMenuSystem.main.setNeedsRebuild()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func addFolder(url: URL) {
+        do {
+            let list = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [])
+            for item in list {
+                var isDirectory: ObjCBool = false
+                FileManager.default.fileExists(atPath: item.path, isDirectory: &isDirectory)
+                if isDirectory.boolValue {
+                    self.addFolder(url: item)
+                } else if item.absoluteString.hasSuffix(".xliff") {
+                    self.addDocument(url: item)
+                }
+            }
         } catch {
             print(error.localizedDescription)
         }

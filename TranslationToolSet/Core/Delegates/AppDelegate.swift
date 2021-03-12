@@ -30,10 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    static let openCommand = UIKeyCommand(title: NSLocalizedString("Open XLIFF", comment: ""),
+    static let openFileCommand = UIKeyCommand(title: NSLocalizedString("Open XLIFF", comment: ""),
                                           image: nil,
                                           action: #selector(AppDelegate.openXliffAction),
                                           input: "O",
+                                          modifierFlags: .command,
+                                          propertyList: nil)
+    
+    static let openFolderCommand = UIKeyCommand(title: NSLocalizedString("Open Xcode exported folder", comment: ""),
+                                          image: nil,
+                                          action: #selector(AppDelegate.openFolderAction),
+                                          input: "F",
                                           modifierFlags: .command,
                                           propertyList: nil)
     
@@ -44,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                           modifierFlags: .command,
                                           propertyList: nil)
     
-    static let duplicateCommand = UIKeyCommand(title: NSLocalizedString("Duplicate", comment: ""),
+    static let duplicateCommand = UIKeyCommand(title: NSLocalizedString("Add language", comment: ""),
                                           image: nil,
                                           action: #selector(AppDelegate.duplicateLanguageAction),
                                           input: "D",
@@ -59,13 +66,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                    image: nil,
                                    identifier: UIMenu.Identifier("org.mdd.menus.openMenu"),
                                    options: .displayInline,
-                                   children: [AppDelegate.openCommand, AppDelegate.saveCommand, AppDelegate.duplicateCommand])
+                                   children: [AppDelegate.openFileCommand, AppDelegate.openFolderCommand, AppDelegate.saveCommand, AppDelegate.duplicateCommand])
             builder.insertChild(openMenu, atStartOfMenu: .file)
         }
     }
     
     @objc private func openXliffAction() {
         MainViewController.instance?.openXliffFile()
+    }
+    
+    @objc private func openFolderAction() {
+        MainViewController.instance?.openXcodeExportedFolder()
     }
     
     @objc private func saveChangesAction() {

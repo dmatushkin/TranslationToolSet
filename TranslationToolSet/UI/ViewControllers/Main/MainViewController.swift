@@ -40,6 +40,13 @@ class MainViewController: UIViewController {
         self.present(picker, animated: true, completion: nil)        
     }
     
+    func openXcodeExportedFolder() {
+        let picker = UIDocumentPickerViewController(documentTypes: [String(kUTTypeFolder)], in: .open)
+        picker.allowsMultipleSelection = false
+        picker.delegate = self.model.addExportedFolderPickerDelegate
+        self.present(picker, animated: true, completion: nil)
+    }
+    
     func duplicateLanguage() {
         guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "DuplicateLanguageViewController") as? DuplicateLanguageViewController else { return }
         controller.delegate = self.model
