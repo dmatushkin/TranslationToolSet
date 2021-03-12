@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol DuplicateLanguageDelegate: class {
+    
+    func duplicateLanguage(with: String)
+}
+
 class DuplicateLanguageViewController: UIViewController {
     
     @IBOutlet private var newLanguageField: UITextField!
-    weak var mainModel: MainViewModel?
+    weak var delegate: DuplicateLanguageDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +28,9 @@ class DuplicateLanguageViewController: UIViewController {
     
     @IBAction private func duplicateAction() {
         guard let code = self.newLanguageField.text, !code.isEmpty else { return }
-        self.mainModel?.duplicateLanguage(with: code)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {[weak self] in
+            self?.delegate?.duplicateLanguage(with: code)
+        })
     }
     
     /*

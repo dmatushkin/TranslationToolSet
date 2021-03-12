@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainViewModel: TranslationValueUpdateDelegate {
+class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
     
     class SectionsListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         
@@ -74,8 +74,34 @@ class MainViewModel: TranslationValueUpdateDelegate {
         }
     }
     
+    class AddLanguagePickerDelegate: NSObject, UIDocumentPickerDelegate {
+        
+        fileprivate weak var model: MainViewModel!
+        
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            for url in urls {
+                self.model.addDocument(url: url)
+            }
+        }
+        
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            
+        }
+    }
+    
+    class DuplicateLanguagePickerDelegate: NSObject, SaveLanguagePickerDelegate {
+        
+        fileprivate weak var model: MainViewModel!
+        
+        func languageSaved(language: TranslationLanguage) {
+            self.model.languages.append(language)
+        }
+    }
+    
     let sectionsListDataSource = SectionsListDataSource()
     let translationsCollectionDataSource = TranslationsDataSource()
+    let addLanguagePickerDelegate = AddLanguagePickerDelegate()
+    let duplicateLanguagePickerDelegate = DuplicateLanguagePickerDelegate()
     weak var controller: MainViewController!
     
     private var languages: [TranslationLanguage] = [] {
@@ -99,6 +125,8 @@ class MainViewModel: TranslationValueUpdateDelegate {
     init() {
         self.sectionsListDataSource.model = self
         self.translationsCollectionDataSource.model = self
+        self.addLanguagePickerDelegate.model = self
+        self.duplicateLanguagePickerDelegate.model = self
     }
     
     func addDocument(url: URL) {
@@ -194,6 +222,6 @@ class MainViewModel: TranslationValueUpdateDelegate {
             return TranslationFile(filePath: file, toolId: toolId, toolName: toolName, toolVersion: toolVersion, toolBuildNumber: toolBuildNumber, translationUnits: units)
         })
         let newLanguage = TranslationLanguage(documentURL: URL(fileURLWithPath: ""), sourceLanguage: self.languages[0].sourceLanguage, targetLanguage: code, translationFiles: translationFiles)
-        self.languages.append(newLanguage)
+        self.controller.saveDuplicateLanguage(language: newLanguage)
     }
 }

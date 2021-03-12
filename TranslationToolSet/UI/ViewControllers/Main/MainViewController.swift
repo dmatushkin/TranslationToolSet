@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UIDocumentPickerDelegate {
+class MainViewController: UIViewController {
     
     @IBOutlet private var sectionsTable: UITableView!
     @IBOutlet private var translationCollection: UICollectionView!
@@ -34,30 +34,25 @@ class MainViewController: UIViewController, UIDocumentPickerDelegate {
     func openXliffFile() {
         let picker = UIDocumentPickerViewController(documentTypes: ["public.text"], in: .open)
         picker.allowsMultipleSelection = false
-        picker.delegate = self
+        picker.delegate = self.model.addLanguagePickerDelegate
         self.present(picker, animated: true, completion: nil)        
     }
     
     func duplicateLanguage() {
         guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "DuplicateLanguageViewController") as? DuplicateLanguageViewController else { return }
-        controller.modalPresentationStyle = .popover
-        controller.popoverPresentationController?.sourceView = self.translationCollection
-        controller.mainModel = self.model
+        controller.delegate = self.model
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    func saveDuplicateLanguage(language: TranslationLanguage) {
+        let picker = SaveLanguagePickerViewController(language: language)
+        picker.allowsMultipleSelection = false
+        picker.languageDelegate = self.model.duplicateLanguagePickerDelegate
+        self.present(picker, animated: true, completion: nil)
     }
     
     func saveChanges() {
         self.model.saveChanges()
-    }
-    
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        for url in urls {
-            self.model.addDocument(url: url)
-        }
-    }
-    
-    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        
     }
 }
 

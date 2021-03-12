@@ -32,6 +32,7 @@
 		5650190525F9082C006F75A8 /* TranslationHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */; };
 		56C19C0E25F9D4930038642E /* DuplicateLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */; };
 		56C19C2025FA8CEE0038642E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */; };
+		56C19C2425FB22750038642E /* SaveLanguagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C2325FB22750038642E /* SaveLanguagePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHeaderReusableView.swift; sourceTree = "<group>"; };
 		56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateLanguageViewController.swift; sourceTree = "<group>"; };
 		56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		56C19C2325FB22750038642E /* SaveLanguagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLanguagePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		565018A025F7D0C0006F75A8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				56C19C2725FB27ED0038642E /* Utility */,
 				565018EA25F8CE42006F75A8 /* Extensions */,
 				565018AA25F7D5AF006F75A8 /* Models */,
 				565018A925F7D59E006F75A8 /* Delegates */,
@@ -239,6 +242,14 @@
 				56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */,
 			);
 			path = DuplicateLanguage;
+			sourceTree = "<group>";
+		};
+		56C19C2725FB27ED0038642E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				56C19C2325FB22750038642E /* SaveLanguagePickerViewController.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C19C2025FA8CEE0038642E /* ArrayExtension.swift in Sources */,
+				56C19C2425FB22750038642E /* SaveLanguagePickerViewController.swift in Sources */,
 				5650188B25F7D05B006F75A8 /* MainViewController.swift in Sources */,
 				565018F525F8E4A4006F75A8 /* MainSectionsTableViewCell.swift in Sources */,
 				565018FD25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift in Sources */,
