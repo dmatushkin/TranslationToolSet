@@ -73,5 +73,17 @@ class MainViewController: UIViewController {
     func saveChanges() {
         self.model.saveChanges()
     }
+    
+    func exportTranslationKeys() {
+        let keys = self.model.translationnKeys()
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("keys.txt")
+        do {
+            try keys.write(to: url, atomically: true, encoding: .utf8)
+            let picker = UIDocumentPickerViewController(url: url, in: .moveToService)
+            self.present(picker, animated: true, completion: nil)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 

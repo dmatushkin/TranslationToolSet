@@ -182,10 +182,12 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
             let fileContent = try String(contentsOf: url)
             let language = try TranslationLanguage(documentURL: url, fileContent: fileContent)
             self.languages.append(language)
-            AppDelegate.duplicateCommand.attributes = []
-            AppDelegate.exportKeysCommand.attributes = []
-            AppDelegate.applyTSVCommand.attributes = []
-            UIMenuSystem.main.setNeedsRebuild()
+            DispatchQueue.main.async {
+                AppDelegate.duplicateCommand.attributes = []
+                AppDelegate.exportKeysCommand.attributes = []
+                AppDelegate.applyTSVCommand.attributes = []
+                UIMenuSystem.main.setNeedsRebuild()
+            }
         } catch {
             print(error.localizedDescription)
         }
@@ -290,5 +292,15 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         })
         let newLanguage = TranslationLanguage(documentURL: URL(fileURLWithPath: ""), sourceLanguage: self.languages[0].sourceLanguage, targetLanguage: code, translationFiles: translationFiles)
         self.controller.saveDuplicateLanguage(language: newLanguage)
+    }
+    
+    func translationnKeys() -> String {
+        var result: [String] = []
+        for language in self.languages {
+            for file in language.translationFiles {
+                result.appendMissing(from: file.translationUnits.map({ $0.source }))
+            }
+        }
+        return result.joined(separator: "\n")
     }
 }

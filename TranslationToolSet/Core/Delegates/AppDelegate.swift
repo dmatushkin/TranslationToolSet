@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc private func exportTranslationKeys() {
-        
+        MainViewController.instance?.exportTranslationKeys()
     }
     
     @objc private func applyTSVFile() {
