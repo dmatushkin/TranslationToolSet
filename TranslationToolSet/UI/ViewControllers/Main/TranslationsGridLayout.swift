@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol RowHeightDelegate: class {
+    
+    func translationRowHeight(section: Int, cellWidth: CGFloat) -> CGFloat
+}
+
 class TranslationsGridLayout: UICollectionViewLayout {
 
     private let itemWidth: CGFloat = 250
     private let itemHeight: CGFloat = 50
     private let headerHeight: CGFloat = 30
-    weak var model: MainViewModel!
+    weak var rowHeightDelegate: RowHeightDelegate!
     private var rowHeights:[CGFloat] = []
     private var calculatedContentSize: CGSize = .zero
     
@@ -25,7 +30,7 @@ class TranslationsGridLayout: UICollectionViewLayout {
         self.rowHeights = []
         guard let collection = self.collectionView, collection.numberOfSections > 0 else { return }
         for section in 0..<collection.numberOfSections {
-            let rowHeight = self.model.translationRowHeight(section: section, cellWidth: itemWidth)
+            let rowHeight = self.rowHeightDelegate.translationRowHeight(section: section, cellWidth: itemWidth)
             self.rowHeights.append(rowHeight)
         }
         self.calculatedContentSize = CGSize(width: CGFloat(collection.numberOfItems(inSection: 0)) * itemWidth, height: self.rowHeights.reduce(0, { $0 + $1 }) + headerHeight)

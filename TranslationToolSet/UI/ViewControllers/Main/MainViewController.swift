@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         MainViewController.instance = self
         self.model.controller = self
-        self.layout.model = self.model
+        self.layout.rowHeightDelegate = self.model
         self.translationCollection.collectionViewLayout = self.layout
         self.sectionsTable.dataSource = self.model.sectionsListDataSource
         self.sectionsTable.delegate = self.model.sectionsListDataSource
@@ -84,6 +84,13 @@ class MainViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func applyTsv() {
+        let picker = UIDocumentPickerViewController(documentTypes: ["public.text"], in: .open)
+        picker.allowsMultipleSelection = false
+        picker.delegate = self.model.applyTranslationPickerDelegate
+        self.present(picker, animated: true, completion: nil) 
     }
 }
 

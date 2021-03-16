@@ -105,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc private func applyTSVFile() {
-        
+        MainViewController.instance?.applyTsv()
     }
 }
 

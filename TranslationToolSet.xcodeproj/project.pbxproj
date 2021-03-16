@@ -32,6 +32,12 @@
 		5650190525F9082C006F75A8 /* TranslationHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */; };
 		56A6C1D625FB85D5008CEAFF /* UIKeyCommandExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1D525FB85D5008CEAFF /* UIKeyCommandExtension.swift */; };
 		56A6C1DB25FB88B8008CEAFF /* LoadIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1DA25FB88B8008CEAFF /* LoadIndicatorViewController.swift */; };
+		56A6C1E22600AD53008CEAFF /* ApplyTranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1E12600AD53008CEAFF /* ApplyTranslationViewController.swift */; };
+		56A6C1E62600B0CF008CEAFF /* ApplyTranslationItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1E52600B0CF008CEAFF /* ApplyTranslationItemCollectionViewCell.swift */; };
+		56A6C1EA2600DE78008CEAFF /* ApplyTranslationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1E92600DE77008CEAFF /* ApplyTranslationModel.swift */; };
+		56A6C1EE2600E499008CEAFF /* ApplyTranslationHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1ED2600E499008CEAFF /* ApplyTranslationHeaderReusableView.swift */; };
+		56A6C1F22600F269008CEAFF /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1F12600F269008CEAFF /* LanguageSelectionViewController.swift */; };
+		56A6C1F62600F343008CEAFF /* LanguageSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C1F52600F343008CEAFF /* LanguageSelectionTableViewCell.swift */; };
 		56C19C0E25F9D4930038642E /* DuplicateLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */; };
 		56C19C2025FA8CEE0038642E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */; };
 		56C19C2425FB22750038642E /* SaveLanguagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C2325FB22750038642E /* SaveLanguagePickerViewController.swift */; };
@@ -72,6 +78,12 @@
 		5650190425F9082C006F75A8 /* TranslationHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHeaderReusableView.swift; sourceTree = "<group>"; };
 		56A6C1D525FB85D5008CEAFF /* UIKeyCommandExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyCommandExtension.swift; sourceTree = "<group>"; };
 		56A6C1DA25FB88B8008CEAFF /* LoadIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadIndicatorViewController.swift; sourceTree = "<group>"; };
+		56A6C1E12600AD53008CEAFF /* ApplyTranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTranslationViewController.swift; sourceTree = "<group>"; };
+		56A6C1E52600B0CF008CEAFF /* ApplyTranslationItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTranslationItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		56A6C1E92600DE77008CEAFF /* ApplyTranslationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTranslationModel.swift; sourceTree = "<group>"; };
+		56A6C1ED2600E499008CEAFF /* ApplyTranslationHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTranslationHeaderReusableView.swift; sourceTree = "<group>"; };
+		56A6C1F12600F269008CEAFF /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
+		56A6C1F52600F343008CEAFF /* LanguageSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateLanguageViewController.swift; sourceTree = "<group>"; };
 		56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		56C19C2325FB22750038642E /* SaveLanguagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLanguagePickerViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +188,7 @@
 		565018A225F7D0DA006F75A8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				56A6C1E02600AD2E008CEAFF /* ApplyTranslation */,
 				56A6C1D925FB889D008CEAFF /* LoadIndicator */,
 				56C19C0C25F9D4770038642E /* DuplicateLanguage */,
 				565018A425F7D542006F75A8 /* Main */,
@@ -248,6 +261,19 @@
 				56A6C1DA25FB88B8008CEAFF /* LoadIndicatorViewController.swift */,
 			);
 			path = LoadIndicator;
+			sourceTree = "<group>";
+		};
+		56A6C1E02600AD2E008CEAFF /* ApplyTranslation */ = {
+			isa = PBXGroup;
+			children = (
+				56A6C1E12600AD53008CEAFF /* ApplyTranslationViewController.swift */,
+				56A6C1E52600B0CF008CEAFF /* ApplyTranslationItemCollectionViewCell.swift */,
+				56A6C1E92600DE77008CEAFF /* ApplyTranslationModel.swift */,
+				56A6C1ED2600E499008CEAFF /* ApplyTranslationHeaderReusableView.swift */,
+				56A6C1F12600F269008CEAFF /* LanguageSelectionViewController.swift */,
+				56A6C1F52600F343008CEAFF /* LanguageSelectionTableViewCell.swift */,
+			);
+			path = ApplyTranslation;
 			sourceTree = "<group>";
 		};
 		56C19C0C25F9D4770038642E /* DuplicateLanguage */ = {
@@ -382,16 +408,22 @@
 				565018F525F8E4A4006F75A8 /* MainSectionsTableViewCell.swift in Sources */,
 				565018FD25F8F05E006F75A8 /* TranslationValueCollectionViewCell.swift in Sources */,
 				565018F925F8F04C006F75A8 /* TranslationKeyCollectionViewCell.swift in Sources */,
+				56A6C1F22600F269008CEAFF /* LanguageSelectionViewController.swift in Sources */,
 				5650188725F7D05B006F75A8 /* AppDelegate.swift in Sources */,
 				5650188925F7D05B006F75A8 /* SceneDelegate.swift in Sources */,
 				56C19C0E25F9D4930038642E /* DuplicateLanguageViewController.swift in Sources */,
 				565018A625F7D554006F75A8 /* MainViewModel.swift in Sources */,
+				56A6C1E62600B0CF008CEAFF /* ApplyTranslationItemCollectionViewCell.swift in Sources */,
+				56A6C1F62600F343008CEAFF /* LanguageSelectionTableViewCell.swift in Sources */,
 				565018AC25F7D644006F75A8 /* TranslationLanguage.swift in Sources */,
 				565018EC25F8CE53006F75A8 /* OptionalExtension.swift in Sources */,
 				5650190525F9082C006F75A8 /* TranslationHeaderReusableView.swift in Sources */,
+				56A6C1E22600AD53008CEAFF /* ApplyTranslationViewController.swift in Sources */,
 				56A6C1D625FB85D5008CEAFF /* UIKeyCommandExtension.swift in Sources */,
 				56A6C1DB25FB88B8008CEAFF /* LoadIndicatorViewController.swift in Sources */,
 				5650190125F8F0A2006F75A8 /* TranslationsGridLayout.swift in Sources */,
+				56A6C1EA2600DE78008CEAFF /* ApplyTranslationModel.swift in Sources */,
+				56A6C1EE2600E499008CEAFF /* ApplyTranslationHeaderReusableView.swift in Sources */,
 				565018B025F7D68F006F75A8 /* TranslationFile.swift in Sources */,
 				565018B825F7D9D8006F75A8 /* TranslationUnit.swift in Sources */,
 			);

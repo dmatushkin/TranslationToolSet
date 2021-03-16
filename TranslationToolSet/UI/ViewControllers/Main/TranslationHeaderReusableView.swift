@@ -13,6 +13,8 @@ class TranslationHeaderReusableView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.gray.cgColor
     }
     
     func setup(title: String) {

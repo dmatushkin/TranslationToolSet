@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
+class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate, RowHeightDelegate, TranslationsListReloadDelegate {
     
     private static let backgroundQueue = DispatchQueue(label: "data_load_queue", qos: .utility)
     
@@ -127,11 +127,27 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         }
     }
     
+    class ApplyTranslationPickerDelegate: NSObject, UIDocumentPickerDelegate {
+        fileprivate weak var model: MainViewModel!
+        
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            guard let controller = self.model.controller.storyboard?.instantiateViewController(withIdentifier: "ApplyTranslationViewController") as? ApplyTranslationViewController else { return }
+            controller.model.process(tsvURL: urls.first, languages: self.model.languages)
+            controller.reloadDelegate = self.model
+            self.model.controller.present(controller, animated: true, completion: nil)
+        }
+        
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            
+        }
+    }
+    
     let sectionsListDataSource = SectionsListDataSource()
     let translationsCollectionDataSource = TranslationsDataSource()
     let addLanguagePickerDelegate = AddLanguagePickerDelegate()
     let duplicateLanguagePickerDelegate = DuplicateLanguagePickerDelegate()
     let addExportedFolderPickerDelegate = AddExportedFolderPickerDelegate()
+    let applyTranslationPickerDelegate = ApplyTranslationPickerDelegate()
     weak var controller: MainViewController!
     
     private var languages: [TranslationLanguage] = [] {
@@ -152,6 +168,7 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         self.addLanguagePickerDelegate.model = self
         self.duplicateLanguagePickerDelegate.model = self
         self.addExportedFolderPickerDelegate.model = self
+        self.applyTranslationPickerDelegate.model = self
     }
     
     private func reloadLanguages() {
@@ -163,6 +180,10 @@ class MainViewModel: TranslationValueUpdateDelegate, DuplicateLanguageDelegate {
         self.sections = res
         self.selectedSection = 0
         self.recalculateTranslations()
+        self.needsToReloadSections()
+    }
+    
+    func reloadData() {
         self.needsToReloadSections()
     }
     
