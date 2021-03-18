@@ -15,7 +15,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.mdd.xliff</string>
+				<string>org.mdd.TranslationToolSet.xliff</string>
 			</array>
 		</dict>
 	</array>
@@ -87,16 +87,12 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.mdd.xliff</string>
+			<string>org.mdd.TranslationToolSet.xliff</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
 					<string>xliff</string>
-				</array>
-				<key>public.mime-type</key>
-				<array>
-					<string>text/xml</string>
 				</array>
 			</dict>
 		</dict>
@@ -113,16 +109,12 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.mdd.xliff</string>
+			<string>org.mdd.TranslationToolSet.xliff</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
 					<string>xliff</string>
-				</array>
-				<key>public.mime-type</key>
-				<array>
-					<string>text/xml</string>
 				</array>
 			</dict>
 		</dict>
