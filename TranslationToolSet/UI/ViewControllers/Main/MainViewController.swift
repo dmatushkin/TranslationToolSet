@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     static var instance: MainViewController?
     private let model = MainViewModel()
     private let layout = TranslationsGridLayout()
-    private var loadIndicator: LoadIndicatorViewController!
+    private var loadIndicator: UIViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,14 @@ class MainViewController: UIViewController {
         self.sectionsTable.dataSource = self.model.sectionsListDataSource
         self.sectionsTable.delegate = self.model.sectionsListDataSource
         self.translationCollection.dataSource = self.model.translationsCollectionDataSource
-        self.loadIndicator = self.storyboard!.instantiateViewController(withIdentifier: "LoadIndicatorViewController") as! LoadIndicatorViewController
+        self.loadIndicator = self.createLoadIndicator()
+    }
+    
+    private func createLoadIndicator() -> UIViewController {
+        guard let controller = self.storyboard?.instantiateViewController(identifier: "LoadIndicatorViewController") else {
+            fatalError()
+        }
+        return controller
     }
     
     func reloadSectionsTable() {
@@ -39,11 +46,11 @@ class MainViewController: UIViewController {
         let picker = UIDocumentPickerViewController(documentTypes: ["public.text"], in: .open)
         picker.allowsMultipleSelection = false
         picker.delegate = self.model.addLanguagePickerDelegate
-        self.present(picker, animated: true, completion: nil)        
+        self.present(picker, animated: true, completion: nil)
     }
     
     func openXcodeExportedFolder() {
-        let picker = UIDocumentPickerViewController(documentTypes: [String(kUTTypeFolder)], in: .open)
+        let picker = UIDocumentPickerViewController(documentTypes: ["public.folder"], in: .open)
         picker.allowsMultipleSelection = false
         picker.delegate = self.model.addExportedFolderPickerDelegate
         self.present(picker, animated: true, completion: nil)
