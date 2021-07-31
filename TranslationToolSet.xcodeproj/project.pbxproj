@@ -41,6 +41,7 @@
 		56C19C0E25F9D4930038642E /* DuplicateLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C0D25F9D4930038642E /* DuplicateLanguageViewController.swift */; };
 		56C19C2025FA8CEE0038642E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C1F25FA8CEE0038642E /* ArrayExtension.swift */; };
 		56C19C2425FB22750038642E /* SaveLanguagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C19C2325FB22750038642E /* SaveLanguagePickerViewController.swift */; };
+		56EE2FCF26B5896800B1C391 /* CoreXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = 56EE2FCE26B5896800B1C391 /* CoreXLSX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56EE2FCF26B5896800B1C391 /* CoreXLSX in Frameworks */,
 				565018CC25F7DF8F006F75A8 /* CommonError in Frameworks */,
 				565018B425F7D71C006F75A8 /* SwiftSoup in Frameworks */,
 			);
@@ -311,6 +313,7 @@
 			packageProductDependencies = (
 				565018B325F7D71C006F75A8 /* SwiftSoup */,
 				565018CB25F7DF8F006F75A8 /* CommonError */,
+				56EE2FCE26B5896800B1C391 /* CoreXLSX */,
 			);
 			productName = TranslationToolSet;
 			productReference = 5650188325F7D05B006F75A8 /* TranslationToolSet.app */;
@@ -366,6 +369,7 @@
 			packageReferences = (
 				565018B225F7D71C006F75A8 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				565018CA25F7DF8F006F75A8 /* XCRemoteSwiftPackageReference "CommonError" */,
+				56EE2FCD26B5896800B1C391 /* XCRemoteSwiftPackageReference "CoreXLSX" */,
 			);
 			productRefGroup = 5650188425F7D05B006F75A8 /* Products */;
 			projectDirPath = "";
@@ -718,6 +722,14 @@
 				kind = branch;
 			};
 		};
+		56EE2FCD26B5896800B1C391 /* XCRemoteSwiftPackageReference "CoreXLSX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/CoreXLSX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -730,6 +742,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 565018CA25F7DF8F006F75A8 /* XCRemoteSwiftPackageReference "CommonError" */;
 			productName = CommonError;
+		};
+		56EE2FCE26B5896800B1C391 /* CoreXLSX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56EE2FCD26B5896800B1C391 /* XCRemoteSwiftPackageReference "CoreXLSX" */;
+			productName = CoreXLSX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

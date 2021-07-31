@@ -94,7 +94,7 @@ class MainViewController: UIViewController {
     }
     
     func applyTsv() {
-        let picker = UIDocumentPickerViewController(documentTypes: ["public.text"], in: .open)
+        let picker = UIDocumentPickerViewController(documentTypes: ["org.openxmlformats.spreadsheetml.sheet"], in: .open)
         picker.allowsMultipleSelection = false
         picker.delegate = self.model.applyTranslationPickerDelegate
         self.present(picker, animated: true, completion: nil) 

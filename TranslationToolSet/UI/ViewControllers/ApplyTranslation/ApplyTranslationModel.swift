@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreXLSX
 
 class ApplyTranslationModel: RowHeightDelegate, ApplyTransitionHeaderDelegate, LanguageSelectionDelegate {
     
@@ -61,8 +62,15 @@ class ApplyTranslationModel: RowHeightDelegate, ApplyTransitionHeaderDelegate, L
         guard let tsvURL = tsvURL else { return }
         self.translationLanguages = languages
         do {
-            let content = try String(contentsOf: tsvURL)
-            self.data = content.split(separator: "\n").map({ $0.split(separator: "\t").map({ String($0) }) })
+            let data = try Data(contentsOf: tsvURL)
+            let file = try XLSXFile(data: data)
+            if let sharedStrings = try file.parseSharedStrings(),
+               let workbook = try file.parseWorkbooks().first,
+               let (_, path) = try file.parseWorksheetPathsAndNames(workbook: workbook).first {
+                let worksheet = try file.parseWorksheet(at: path)
+                let rows = worksheet.data?.rows ?? []
+                self.data = rows.map({ $0.cells.map({ $0.stringValue(sharedStrings) ?? "" }) })
+            }
         } catch {
             print(error.localizedDescription)
         }

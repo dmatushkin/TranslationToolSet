@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                           modifierFlags: .command,
                                           propertyList: nil).disabled()
     
-    static let applyTSVCommand = UIKeyCommand(title: NSLocalizedString("Apply translation", comment: ""),
+    static let applyTSVCommand = UIKeyCommand(title: NSLocalizedString("Apply translation from XLSX", comment: ""),
                                           image: nil,
                                           action: #selector(AppDelegate.applyTSVFile),
                                           input: "A",
